@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block page_title %}Login{% endblock %}
+{% block content %}
+
+<div class="container login">
+    <div class="logo-signin">
+        <div class="col-md-6">
+            <img src="/app/common/images/{{ site_name }}-logo.png" class="signin-left" style="display: none; max-height: 100px; max-width: 285px;">
+        </div>
+        <div class="col-md-6">
+            <img src="/app/common/images/lbd-logo.png" class="signin-right" height="100">
+        </div>
+    </div>
+    <hr>
+    <form method="post" action="{% url 'login' %}" class="form-signin">
+        {% csrf_token %}
+        {% if form.errors %}
+        <p>Votre identifiant et votre mot-de-passe n'ont pas été reconnus. Veuillez réessayer.</p>
+        {% endif %}
+        <label for="id_username">VOTRE IDENTIFIANT :</label>
+        <input id="id_username" type="text" name="username" placeholder="Votre indentifiant" class="form-control" required autofocus>
+        <label for="id_password">VOTRE MOT DE PASSE :</label>
+        <input id="id_password" type="password" name="password" placeholder="Votre mot-de-passe" class="form-control" required>
+
+        <input class="btn btn-lg btn-primary" type="submit" value="JE ME CONNECTE" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+</div>
+
+{% endblock %}

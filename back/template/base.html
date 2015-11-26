@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{# templates from front/app/templates #}
+{% include "IEconfig.html" %}
+<head>
+  {# templates from front/app/templates #}
+  {% include "head.html" %}
+  <title>{% block page_title %}Elle video recommandation{% endblock %}</title>
+</head>
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  {% url 'login' as login_url %}
+  {% if request.path != login_url %}
+  {% endif %}
+  {% block content %}
+      <div ng-view class="main-content"></div>
+  {% endblock %}
+  {# templates from front/app/templates #}
+  {% include "angularScript.html" %}
+  {% include "appScript.html" %}
+</body>
+</html>
