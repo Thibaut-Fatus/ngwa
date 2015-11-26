@@ -5,7 +5,7 @@
 front/logs/*
 front/!.gitkeep
 front/node_modules/
-front/bower_components/
+front/app/bower_components/
 front/tmp
 front/.DS_Store
 front/.idea
